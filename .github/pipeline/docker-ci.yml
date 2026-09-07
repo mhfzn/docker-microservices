@@ -1,0 +1,15 @@
+name: CI Pipeline Microservices
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  pengujian-build:
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Checkout Kode
+        uses: actions/checkout@v4
+      - name: Uji Build Docker Compose
+        run: docker compose build
