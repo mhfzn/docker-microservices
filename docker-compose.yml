@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    image: web-app:v1
+    container_name: web-app-compose
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+  redis-server:
+    image: redis:alpine
+    container_name: redis-cache
+    restart: unless-stopped
