@@ -1,0 +1,28 @@
+name: K3s Local Deploy
+
+on:
+  push:
+    branches:
+      - master
+      
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+    
+    steps:
+      - name: Checkout Repositori
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t web-app:latest .
+
+      - name: Import Image ke K3s Lokal
+        run: docker save web-app:latest | sudo k3s ctr images import -
+
+      - name: Deploy ke Kubernetes
+        run: |
+          kubectl apply -f k8s-redis.yaml
+          kubectl apply -f k8s-web.yaml
+          
+      - name: Restart Pod Python
+        run: kubectl rollout restart deployment web-deployment
