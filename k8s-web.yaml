@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: web-container
-        image: image: web-app:latest
+        image: web-app:latest
         imagePullPolicy: Never
         ports:
         - containerPort: 8080
