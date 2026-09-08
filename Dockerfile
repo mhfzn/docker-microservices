@@ -5,7 +5,7 @@ FROM python:3.9-alpine
 WORKDIR /app
 
 # Menginstal library Redis untuk Python
-RUN pip install redis
+RUN pip install redis prometheus-client
 
 # Salin file app.py dari laptop Anda ke dalam container
 COPY app.py .
