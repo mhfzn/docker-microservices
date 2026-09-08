@@ -14,7 +14,7 @@ class HaloHandler(BaseHTTPRequestHandler):
         
         try:
             hits = cache.incr('hits')
-            return f'🚀 Halo dari K3s CI/CD Pipeline! Anda pengunjung ke-{visits}.\n'
+            pesan = f'🚀 Halo dari K3s CI/CD Pipeline! Anda pengunjung ke-{hits}.\n'
         except redis.exceptions.ConnectionError:
             pesan = "Halo! (Gagal terhubung ke Redis)"
 
