@@ -31,9 +31,8 @@ spec:
       targetPort: 8080
       nodePort: 30080
     - name: metrics
-      port: 8080
+      port: 8000
       targetPort: 8080
-      nodePort: 30080
   selector:
     app: python-web
   ports:
