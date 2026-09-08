@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: web-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: python-web
